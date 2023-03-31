@@ -1,24 +1,6 @@
 <?php 
-// koneksi ke Database dan pilih Database
-$conn = mysqli_connect('localhost', 'root', '', 'pw2023_1011202');
-
-//Query isi tabel mahasiswa
-$result = mysqli_query($conn, "SELECT * FROM mahasiswa");
-
-
-//Ubah data ke dalam bentuk array
-//$row = mysqli_fetch_row($result); //array numerik
-//$row = mysqli_fetch_assoc($result); //array associative
-//$row = mysqli_fetch_array($result); //keduanya
-//var_dump($row);
-$rows = [];
-while ($row = mysqli_fetch_assoc($result)) {
-  $rows[] = $row;
-}
-
-var_dump($rows);
-//Tampung ke variable Mahasiswa
-$mahasiswa = $rows;
+require 'functions.php';
+$mahasiswa = query("SELECT * FROM mahasiswa");
 
 ?>
 
@@ -36,14 +18,14 @@ $mahasiswa = $rows;
   
   <h3>Daftar Mahaasiswa</h3>
 
+  <a href="">Tambah data mahasiswa</a>
+  <br><br>
+
   <table border="1" cellpadding="10" cellspacing="0">
     <tr>
       <th>#</th>
       <th>Gambar</th>
-      <th>NRP</th>
       <th>Nama</th>
-      <th>Email</th>
-      <th>Jurusan</th>
       <th>Aksi</th>
     </tr>
 
@@ -53,12 +35,13 @@ $mahasiswa = $rows;
     <tr>
       <td><?= $i++; ?></td>
       <td><img src="img/<?= $mhs['gambar']; ?> " width="60"></td>
-      <td><?= $mhs['nrp']; ?></td>
       <td><?= $mhs['nama']; ?></td>
-      <td><?= $mhs['email']; ?></td>
-      <td><?= $mhs['jurusan']; ?></td>
       <td>
-        <a href="">ubah</a> | <a href="">hapus</a>
+        <a href="">lihat detail</a>
+      </td>
+
+      <td>
+        <a href="detail.php?id=<?= $mhs['id']; ?>">Lihat Hasil</a>
       </td>
     </tr>
 
