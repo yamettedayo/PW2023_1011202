@@ -17,8 +17,9 @@
     <li>Nama : Putri Ramadani</li>
     <li>Email : mettdo@gmail.com</li>
     <li>Jurusan : Teknik Informatika</li>
-    <li><a href="">ubah | hapus</a></li>
-    <li><a href="latihan3.php">Kembali ke daftar Mahasiswa</a></li>
+    <li><a href="ubah.php?id= <?= $mhs['id']; ?>">ubah</a> | <a href="hapus.php?id= <?= $mhs['id']; ?>" onclick="return confirm 
+    ('Apakah anda yakin?');"> hapus</a></li>
+    <li> <a href="index.php">Kembali ke daftar mahsiswa</a> </li>
   </ul>
 
 </body>
