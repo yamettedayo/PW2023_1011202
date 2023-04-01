@@ -1,3 +1,13 @@
+<?php  
+  require 'functions.php';
+
+  //ambil id dari url
+  $id = $_GET['id'];
+
+  //query mahasiswa berdsarkan id
+  $mhs = query("SELECT * FROM mahasiswa WHERE id = $id");
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,11 +22,11 @@
   
   <h3>Detail Mahasiswa</h3>
   <ul>
-    <li><img src="img/akucantik.jpg" width="100"></li>
-    <li>NRP : 2130511089</li>
-    <li>Nama : Putri Ramadani</li>
-    <li>Email : mettdo@gmail.com</li>
-    <li>Jurusan : Teknik Informatika</li>
+    <li><img src="img/<?= $mhs['gambar']; ?>" width="100"></li>
+    <li>NRP : <?= $mhs['nrp']; ?></li>
+    <li>Nama : <?= $mhs['nama']; ?></li>
+    <li>Email : <?= $mhs['email']; ?></li>
+    <li>Jurusan : <?= $mhs['jurusan']; ?></li>
     <li><a href="">ubah | hapus</a></li>
     <li><a href="latihan3.php">Kembali ke daftar Mahasiswa</a></li>
   </ul>

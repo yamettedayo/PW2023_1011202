@@ -1,6 +1,7 @@
 <?php 
   require 'functions.php';
 
+  //apakah tombol tambah sudah ditekan?
   if (isset ($_POST['tambah'])){
     if (tambah($_POST) > 0 ) {
       echo "<script>

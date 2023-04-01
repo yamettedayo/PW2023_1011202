@@ -2,7 +2,7 @@
   require 'functions.php';
 
   //jika tidak ada id di url
-  if(!isset($_GET['id'])){
+  if(!isset($_GET['id'])) {
     header("Location: index.php");
     exit;
   }
@@ -77,7 +77,7 @@
         </label>
       </li>
       <li>
-        <button type="submit" name="ubah">Ubah data</button>
+        <button type="submit" name="ubah">Ubah Data</button>
       </li>
     </ul>
   </form>
